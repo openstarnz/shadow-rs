@@ -395,9 +395,9 @@ impl Shadow {
         self.gen_const()?;
 
         //write version function
-        let gen_version = self.gen_version()?;
+        //let gen_version = self.gen_version()?;
 
-        self.gen_build_in(gen_version)?;
+        //self.gen_build_in(gen_version)?;
 
         Ok(())
     }
@@ -471,6 +471,7 @@ impl Shadow {
         Ok(())
     }
 
+    #[allow(dead_code)]
     fn gen_version(&mut self) -> SdResult<Vec<&'static str>> {
         let (ver_fn, clap_ver_fn, clap_long_ver_fn) = match self.map.get(TAG) {
             None => (
@@ -501,6 +502,7 @@ impl Shadow {
         Ok(vec![BUILD_CONST_VERSION, BUILD_CONST_CLAP_LONG_VERSION])
     }
 
+    #[allow(dead_code)]
     fn gen_build_in(&self, gen_const: Vec<&'static str>) -> SdResult<()> {
         let mut print_val = String::from("\n");
 
